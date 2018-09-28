@@ -1,0 +1,38 @@
+﻿  Vehicle.cpp
+c:\users\user\desktop\canada\cours\ia\travaux\common\misc\cellspacepartition.h(234): warning C4018: '>' : incompatibilité signed/unsigned
+  c:\users\user\desktop\canada\cours\ia\travaux\common\misc\cellspacepartition.h(228): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
+  c:\users\user\desktop\canada\cours\ia\travaux\common\misc\cellspacepartition.h(265): note: voir la référence à l'instanciation de la fonction modèle 'int CellSpacePartition<Vehicle *>::PositionToIndex(const Vector2D &) const' en cours de compilation
+  c:\users\user\desktop\canada\cours\ia\travaux\common\misc\cellspacepartition.h(262): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
+  c:\users\user\desktop\canada\cours\ia\travaux\steeringbehaviour\vehicle.cpp(107): note: voir la référence à l'instanciation de la fonction modèle 'void CellSpacePartition<Vehicle *>::UpdateEntity(const entity &,Vector2D)' en cours de compilation
+          with
+          [
+              entity=Vehicle *
+          ]
+  c:\users\user\desktop\canada\cours\ia\travaux\steeringbehaviour\vehicle.cpp(107): note: voir la référence à l'instanciation de classe modèle 'CellSpacePartition<Vehicle *>' en cours de compilation
+  SteeringBehaviors.cpp
+  Path.cpp
+  ParamLoader.cpp
+  Obstacle.cpp
+  GameWorld.cpp
+c:\users\user\desktop\canada\cours\ia\travaux\common\misc\cellspacepartition.h(234): warning C4018: '>' : incompatibilité signed/unsigned
+  c:\users\user\desktop\canada\cours\ia\travaux\common\misc\cellspacepartition.h(228): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
+  c:\users\user\desktop\canada\cours\ia\travaux\common\misc\cellspacepartition.h(249): note: voir la référence à l'instanciation de la fonction modèle 'int CellSpacePartition<Vehicle *>::PositionToIndex(const Vector2D &) const' en cours de compilation
+  c:\users\user\desktop\canada\cours\ia\travaux\common\misc\cellspacepartition.h(130): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
+  c:\users\user\desktop\canada\cours\ia\travaux\steeringbehaviour\gameworld.cpp(46): note: voir la référence à l'instanciation de la fonction modèle 'CellSpacePartition<Vehicle *>::CellSpacePartition(double,double,int,int,int)' en cours de compilation
+  c:\users\user\desktop\canada\cours\ia\travaux\steeringbehaviour\gameworld.cpp(46): note: voir la référence à l'instanciation de classe modèle 'CellSpacePartition<Vehicle *>' en cours de compilation
+  PrecisionTimer.cpp
+  WindowUtils.cpp
+  iniFileLoaderBase.cpp
+c:\users\user\desktop\canada\cours\ia\travaux\common\misc\inifileloaderbase.cpp(9): warning C4305: 'argument' : troncation de 'int' à 'const char'
+c:\users\user\desktop\canada\cours\ia\travaux\common\misc\inifileloaderbase.cpp(9): warning C4309: 'argument' : troncation de valeur de constante
+c:\users\user\desktop\canada\cours\ia\travaux\common\misc\inifileloaderbase.cpp(57): warning C4129: ';' : caractère de séquence d'échappement non reconnu
+c:\users\user\desktop\canada\cours\ia\travaux\common\misc\inifileloaderbase.cpp(109): warning C4129: ';' : caractère de séquence d'échappement non reconnu
+  Cgdi.cpp
+  Vector2d.cpp
+  Génération de code en cours...
+LINK : warning LNK4075: ' /INCREMENTAL' ignoré à cause de la spécification '/FORCE'
+Vector2d.obj : warning LNK4075: ' /EDITANDCONTINUE' ignoré à cause de la spécification '/SAFESEH'
+GameWorld.obj : warning LNK4006: "void __cdecl ChangeMenuState(struct HWND__ *,unsigned int,unsigned int)" (?ChangeMenuState@@YAXPAUHWND__@@II@Z) déjà défini dans WindowUtils.obj ; seconde définition ignorée
+main.obj : warning LNK4006: "void __cdecl ChangeMenuState(struct HWND__ *,unsigned int,unsigned int)" (?ChangeMenuState@@YAXPAUHWND__@@II@Z) déjà défini dans WindowUtils.obj ; seconde définition ignorée
+.\Debug\Steering.exe : warning LNK4088: image en cours de génération à cause de l'option /FORCE ; l'image risque de ne pas s'exécuter
+  Steering.vcxproj -> C:\Users\user\Desktop\CANADA\COURS\IA\Travaux\SteeringBehaviour\.\Debug\Steering.exe
