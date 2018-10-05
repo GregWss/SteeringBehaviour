@@ -1,5 +1,6 @@
 #include "GameWorld.h"
 #include "Vehicle.h"
+#include "Player.h"
 #include "constants.h"
 #include "Obstacle.h"
 #include "2d/Geometry.h"
@@ -48,7 +49,31 @@ GameWorld::GameWorld(int cx, int cy):
   double border = 30;
   m_pPath = new Path(5, border, border, cx-border, cy-border, true); 
 
+
+  //Spawn du joueur
+  Vector2D SpawnPos = Vector2D(cx / 2.0 + RandomClamped()*cx / 2.0,
+								cy / 2.0 + RandomClamped()*cy / 2.0);
+
+  Player* pPlayer = new Player(this,
+	  SpawnPos,                 //initial position
+	  RandFloat()*TwoPi,        //start rotation
+	  Vector2D(0, 0),            //velocity
+	  Prm.VehicleMass,          //mass
+	  Prm.MaxSteeringForce,     //max force
+	  Prm.MaxSpeed,             //max velocity
+	  Prm.MaxTurnRatePerSecond, //max turn rate
+	  Prm.VehicleScale);        //scale
+
+  m_Vehicles.push_back(pPlayer);
+
+  //add it to the cell subdivision
+  m_pCellSpace->AddEntity(pPlayer);
+
+  pPlayer->Steering()->FlockingOff();
+  pPlayer->SetScale(Vector2D(10, 10));
+
   //setup the agents
+  /*
   for (int a=0; a<Prm.NumAgents; ++a)
   {
 
@@ -71,11 +96,11 @@ GameWorld::GameWorld(int cx, int cy):
 
     m_Vehicles.push_back(pVehicle);
 
-    //add it to the cell subdivision
-    m_pCellSpace->AddEntity(pVehicle);
-  }
+	//add it to the cell subdivision
+	m_pCellSpace->AddEntity(pVehicle);
+  }*/
 
-
+/*
 #define SHOAL
 #ifdef SHOAL
   m_Vehicles[Prm.NumAgents-1]->Steering()->FlockingOff();
@@ -90,6 +115,7 @@ GameWorld::GameWorld(int cx, int cy):
 
   }
 #endif
+*/
  
   //create any obstacles or walls
   //CreateObstacles();

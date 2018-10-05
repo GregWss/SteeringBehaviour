@@ -13,7 +13,7 @@ using std::list;
 
 //----------------------------- ctor -------------------------------------
 //------------------------------------------------------------------------
-Poursuiveur::Poursuiveur(GameWorld* world,
+/*Poursuiveur::Poursuiveur(GameWorld* world,
 	Vector2D position,
 	double    rotation,
 	Vector2D velocity,
@@ -21,15 +21,16 @@ Poursuiveur::Poursuiveur(GameWorld* world,
 	double    max_force,
 	double    max_speed,
 	double    max_turn_rate,
-	double    scale) : Vehicle(position,
-		scale,
-		velocity,
-		max_speed,
-		Vector2D(sin(rotation), -cos(rotation)),
-		mass,
-		Vector2D(scale, scale),
-		max_turn_rate,
-		max_force),
+	double    scale) : Vehicle(world,
+							position,
+							scale,
+							velocity,
+							max_speed,
+							Vector2D(sin(rotation), -cos(rotation)),
+							mass,
+							Vector2D(scale, scale),
+							max_turn_rate,
+							max_force),
 
 	m_pWorld(world),
 	m_vSmoothedHeading(Vector2D(0, 0)),
@@ -47,20 +48,20 @@ Poursuiveur::Poursuiveur(GameWorld* world,
 
 }
 
-
+*/
 //---------------------------- dtor -------------------------------------
 //-----------------------------------------------------------------------
-Poursuiveur::~Poursuiveur()
+/*Poursuiveur::~Poursuiveur()
 {
 	delete m_pSteering;
 	delete m_pHeadingSmoother;
-}
+}*/
 
 //------------------------------ Update ----------------------------------
 //
 //  Updates the vehicle's position from a series of steering behaviors
 //------------------------------------------------------------------------
-void Poursuiveur::Update(double time_elapsed)
+/*void Poursuiveur::Update(double time_elapsed)
 {
 	//update the time elapsed
 	m_dTimeElapsed = time_elapsed;
@@ -111,12 +112,12 @@ void Poursuiveur::Update(double time_elapsed)
 	{
 		m_vSmoothedHeading = m_pHeadingSmoother->Update(Heading());
 	}
-}
+}*/
 
 
 //-------------------------------- Render -------------------------------------
 //-----------------------------------------------------------------------------
-void Poursuiveur::Render()
+/*void Poursuiveur::Render()
 {
 	//a vector to hold the transformed vertices
 	static std::vector<Vector2D>  m_vecVehicleVBTrans;
@@ -170,14 +171,14 @@ void Poursuiveur::Render()
 	{
 		Steering()->RenderAids();
 	}
-}
+}*/
 
 
 //----------------------------- InitializeBuffer -----------------------------
 //
 //  fills the vehicle's shape buffer with its vertices
 //-----------------------------------------------------------------------------
-void Vehicle::InitializeBuffer()
+/*void Vehicle::InitializeBuffer()
 {
 	const int NumVehicleVerts = 3;
 
@@ -190,4 +191,4 @@ void Vehicle::InitializeBuffer()
 	{
 		m_vecVehicleVB.push_back(vehicle[vtx]);
 	}
-}
+}*/
