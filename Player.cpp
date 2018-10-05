@@ -32,8 +32,8 @@ Player::Player(GameWorld* world,
 										scale)
 
 {
-	//set up the steering behavior class
-	Player::Steering()->SeekOn();
+	// Activation de la fonction Arrive sur le joueur
+	Player::Steering()->ArriveOn();
 }
 
 
@@ -41,5 +41,5 @@ Player::Player(GameWorld* world,
 //-----------------------------------------------------------------------
 Player::~Player()
 {
-	//delete ;
+	Vehicle::~Vehicle();
 }

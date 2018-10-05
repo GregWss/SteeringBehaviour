@@ -72,10 +72,15 @@ GameWorld::GameWorld(int cx, int cy):
   pPlayer->Steering()->FlockingOff();
   pPlayer->SetScale(Vector2D(10, 10));
 
+  //Setting de l'offset pour la poursuite de l'agent
+  Vector2D offsetPos = Vector2D(0, 0);
+
   //setup the agents
-  /*
   for (int a=0; a<Prm.NumAgents; ++a)
   {
+
+	// Changement de l'offset
+	  offsetPos.x -= 20;
 
     //determine a random starting position
     Vector2D SpawnPos = Vector2D(cx/2.0+RandomClamped()*cx/2.0,
@@ -92,13 +97,13 @@ GameWorld::GameWorld(int cx, int cy):
                                     Prm.MaxTurnRatePerSecond, //max turn rate
                                     Prm.VehicleScale);        //scale
 
-    pVehicle->Steering()->FlockingOn();
+	pVehicle->Steering()->OffsetPursuitOn(pPlayer, offsetPos);
 
     m_Vehicles.push_back(pVehicle);
 
 	//add it to the cell subdivision
 	m_pCellSpace->AddEntity(pVehicle);
-  }*/
+  }
 
 /*
 #define SHOAL
