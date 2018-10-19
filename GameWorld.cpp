@@ -57,7 +57,7 @@ GameWorld::GameWorld(int cx, int cy):
   Player* pPlayer = new Player(this,
 	  SpawnPos,                 //initial position
 	  RandFloat()*TwoPi,        //start rotation
-	  Vector2D(0, 0),            //velocity
+	  Vector2D(0, 0),           //velocity
 	  Prm.VehicleMass,          //mass
 	  Prm.MaxSteeringForce,     //max force
 	  Prm.MaxSpeed,             //max velocity
@@ -69,18 +69,28 @@ GameWorld::GameWorld(int cx, int cy):
   //add it to the cell subdivision
   m_pCellSpace->AddEntity(pPlayer);
 
-  pPlayer->Steering()->FlockingOff();
   pPlayer->SetScale(Vector2D(10, 10));
 
-  //Setting de l'offset pour la poursuite de l'agent
-  Vector2D offsetPos = Vector2D(0, 0);
+  // Pour définir les positions des agents protecteurs, on calcule des points random sur un cercle
+  float C_Rayon = 30.0;
+  Vector2D C_Centre = pPlayer->Pos();
+  Vector2D C_posAgents = Vector2D(0, 0);
+  float x = 0;
+  float y = 0;
+  float cpt;
+  float angle = 0;
+  
+  cpt = 360 / Prm.NumAgents;
 
   //setup the agents
   for (int a=0; a<Prm.NumAgents; ++a)
   {
 
-	// Changement de l'offset
-	  offsetPos.x -= 20;
+	  x = C_Rayon * cos(angle + a * cpt);
+	  y = C_Rayon * sin(angle + a * cpt);
+	  C_posAgents.x = x;
+	  C_posAgents.y = y;
+
 
     //determine a random starting position
     Vector2D SpawnPos = Vector2D(cx/2.0+RandomClamped()*cx/2.0,
@@ -97,7 +107,7 @@ GameWorld::GameWorld(int cx, int cy):
                                     Prm.MaxTurnRatePerSecond, //max turn rate
                                     Prm.VehicleScale);        //scale
 
-	pVehicle->Steering()->OffsetPursuitOn(pPlayer, offsetPos);
+	pVehicle->Steering()->OffsetPursuitOn(pPlayer, C_posAgents);
 
     m_Vehicles.push_back(pVehicle);
 
